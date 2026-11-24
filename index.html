@@ -131,7 +131,7 @@ const PRES = "Neto Uggioni";
 (() => {
   const p = V.find(v=>v.n===PRES);
   const cc = V.filter(v=>v!==p).map(v=>v.em).join(',');
-  const q = {view:'cm', fs:'1', to:p.em, cc, su:'Projeto do aumento do salário dos vereadores', body:txt().replace('Olá, vereador(a).', 'Olá, senhores vereadores e senhoras vereadoras.')};
+  const q = {view:'cm', fs:'1', to:p.em, cc, su:'Projeto do aumento do salário dos vereadores', body:txt().replace('Olá, vereador(a).', 'Olá, senhores vereadores e senhoras vereadoras.').replace('que vote', 'que votem').replace('Como vai votar?', 'Como vão votar?')};
   document.getElementById('gmail').href = 'https://mail.google.com/mail/?' + Object.entries(q).map(([k,v])=>k+'='+encodeURIComponent(v)).join('&');
 })();
 document.getElementById('cad').innerHTML = V.map(v=>`<i class="${v.ass?'s':''}"></i>`).join('');
