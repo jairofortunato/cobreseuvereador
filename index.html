@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cobre seu vereador</title>
+<meta name="description" content="Projeto libera aumento do salário dos vereadores de Criciúma no meio do mandato. Veja quem assinou e fale com cada vereador.">
+<meta property="og:title" content="Cobre seu vereador · Criciúma">
+<meta property="og:description" content="Projeto libera aumento do próprio salário. Veja quem assinou e fale com os 17 vereadores.">
+<link rel="icon" href="BrasaoCriciuma.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#009334;--vermelho:#d22811;--preto:#111;--cinza:#777;--linha:#e6e6e6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:Montserrat,system-ui,sans-serif;font-weight:500;background:#fff;color:var(--preto);font-size:14px;line-height:1.3}
+a{color:inherit;text-decoration:none}
+.faixa{height:6px;background:linear-gradient(90deg,var(--verde) 0 45%,#fff 45% 47%,var(--preto) 47% 53%,#fff 53% 55%,var(--vermelho) 55%)}
+header{max-width:640px;margin:0 auto;padding:12px 16px 8px;display:flex;align-items:center;gap:12px}
+header img{width:44px;height:44px;flex:none}
+header h1{font-weight:900;font-size:19px;line-height:1.1;text-transform:uppercase}
+header p{font-size:12px;color:var(--cinza);margin-top:2px}
+.barra{max-width:640px;margin:0 auto;padding:0 16px 10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cad{display:flex;gap:3px}
+.cad i{width:10px;height:10px;border-radius:2px;background:var(--linha)}
+.cad i.s{background:var(--vermelho)}
+.barra b{font-weight:900;font-size:12px}
+.copiar{margin-left:auto;font:700 12px Montserrat,sans-serif;border:0;background:var(--verde);color:#fff;padding:7px 10px;border-radius:6px;cursor:pointer}
+main{max-width:640px;margin:0 auto;padding:0 16px}
+.grupo{font-weight:900;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:10px 0 4px;color:var(--cinza)}
+.grupo.v{color:var(--vermelho)}
+.vr{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--linha)}
+.vr img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:top;flex:none;background:#eee}
+.vr.s img{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--vermelho)}
+.nm{flex:1;min-width:0}
+.nm b{font-weight:700;font-size:14px}
+.nm small{color:var(--cinza);font-size:12px}
+.nm .ig{display:block;color:var(--verde);font-weight:700;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{display:inline-block;font-weight:900;font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--vermelho);padding:2px 5px;border-radius:3px;vertical-align:2px;margin-left:4px}
+.ic{display:flex;gap:6px;flex:none}
+.ic a{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#f3f3f3}
+.ic a:active{background:#ddd}
+.ic svg{width:17px;height:17px}
+footer{max-width:640px;margin:16px auto 0;padding:14px 16px 28px;border-top:1px solid var(--linha);font-size:11px;color:var(--cinza)}
+footer p{margin-bottom:6px}
+footer a{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--preto);color:#fff;font-weight:700;font-size:13px;padding:9px 14px;border-radius:6px;display:none}
+</style>
+</head>
+<body>
+<div class="faixa"></div>
+<header>
+  <img src="BrasaoCriciuma.svg" alt="Brasão de Criciúma">
+  <div>
+    <h1>Cobre seu vereador</h1>
+    <p>Projeto libera os vereadores de Criciúma a aumentar o próprio salário.</p>
+  </div>
+</header>
+<div class="barra">
+  <div class="cad" id="cad"></div><b>6 de 17 assinaram</b>
+  <button class="copiar" onclick="copiar()">Copiar mensagem</button>
+</div>
+<main id="lista"></main>
+<footer>
+  <p><b>Mensagem sugerida:</b> <span id="texto">Olá, vereador(a). Sou eleitor(a) de Criciúma e peço que vote CONTRA o projeto que libera aumento do salário dos vereadores no meio do mandato. Como vai votar?</span></p>
+  <p>Cobre com respeito: sem xingamento, ameaça ou ofensa. A votação ainda não aconteceu; "assinou" = subscreveu o projeto protocolado em 23/11/2026.</p>
+  <p>Contatos e fotos: site oficial da <a href="https://www.camaracriciuma.sc.gov.br/vereadores/mandato/vereadores-em-exercicio-141" target="_blank" rel="noopener">Câmara de Criciúma</a> (24/11/2026). Projeto: <a href="https://www.4oito.com.br/blog/adelor-lessa/post/neto-protocola-projeto-para-sua-reeleicao-e-aumento-de-ate-70-dos-salariios-dos-vereadores-16983" target="_blank" rel="noopener">Blog Adelor Lessa / 4oito</a>. Central da Câmara: (48) 3431-2224.</p>
+  <p>Site independente, feito por cidadãos. Não é da Prefeitura nem da Câmara.</p>
+</footer>
+<div class="toast" id="toast">Mensagem copiada</div>
+
+<script>
+const CAMARA = "(48) 3431-2224";
+const V = [
+ {n:"Neto Uggioni", p:"PSDB", c:"autor", ass:true, f:"luiz-manoel-alexandre-neto-100047", tel:"", cel:"", em:"neto@camaracriciuma.sc.gov.br", ig:"netouggioni"},
+ {n:"Aldinei Potelecki", p:"Republicanos", ass:true, f:"aldinei-joao-potelecki-5718", tel:"(48) 3431-2241", cel:"", em:"potelecki@camaracriciuma.sc.gov.br", ig:""},
+ {n:"Toninho da Imbralit", p:"PSD", ass:true, f:"antonio-manoel-5111", tel:"(48) 3431-2230", cel:"", em:"toninho@camaracriciuma.sc.gov.br", ig:"toninhodaimbralit"},
+ {n:"Gorete Boaroli", p:"PSDB", ass:true, f:"gorete-mendes-correa-10144", tel:"", cel:"", em:"gorete@camaracriciuma.sc.gov.br", ig:"goretecorreaboaroli"},
+ {n:"Marcos Machado", p:"MDB", ass:true, f:"marcos-soares-machado-5874", tel:"(48) 3431-2225", cel:"", em:"marcos.machado@camaracriciuma.sc.gov.br", ig:"omarcosmachado"},
+ {n:"Miri Dagostim", p:"PP", ass:true, f:"valmir-dagostim-5362", tel:"(48) 3431-2255", cel:"", em:"miridagostim@camaracriciuma.sc.gov.br", ig:""},
+ {n:"Amaral Bittencourt", p:"PSD", f:"valdeci-bittencourt-5120", tel:"(48) 3431-2211", cel:"", em:"amaral@camaracriciuma.sc.gov.br", ig:"amaral.bittencourt"},
+ {n:"Antonio Cordova", p:"PL", f:"antonio-cordova-de-oliveira-10355", tel:"", cel:"", em:"cordova@camaracriciuma.sc.gov.br", ig:""},
+ {n:"Daniel Cipriano", p:"PSDB", f:"daniel-virtuoso-cipriano-5938", tel:"(48) 3431-2230", cel:"(48) 99117-5974", em:"danielcipriano@camaracriciuma.sc.gov.br", ig:"danielciprianooficial"},
+ {n:"Giovana Mondardo", p:"PCdoB", f:"giovana-vito-mondardo-10114", tel:"(48) 3431-2265", cel:"(48) 99179-6218", em:"giovanamondardo@camaracriciuma.sc.gov.br", ig:"gimondardo"},
+ {n:"Juceli Alano", p:"PSD", f:"juceli-sebastiao-alano-100026", tel:"", cel:"", em:"juceli@camaracriciuma.sc.gov.br", ig:"jucelinosalano"},
+ {n:"Luiz Fontana", p:"PL", f:"luiz-carlos-custodio-fontana-10180", tel:"", cel:"", em:"luizfontana@camaracriciuma.sc.gov.br", ig:""},
+ {n:"Marcio Daros da Luz", p:"PSD", f:"marcio-daros-da-luz-10116", tel:"(48) 3431-2241", cel:"(48) 99105-4378", em:"marcio@camaracriciuma.sc.gov.br", ig:"marciodarosdaluz"},
+ {n:"Marlon Zappelini", p:"PL", f:"marlon-zappelini-5303", tel:"", cel:"", em:"marlonzappelini1@gmail.com", ig:""},
+ {n:"Neri Xavier", p:"União", f:"neri-xavier-dos-santos-10619", tel:"", cel:"", em:"neri.xavier@camaracriciuma.sc.gov.br", ig:"neri.xaier.santos"},
+ {n:"Nícola Martins", p:"PL", f:"nicola-hilario-martins-10115", tel:"(48) 3431-2212", cel:"", em:"nicola@camaracriciuma.sc.gov.br", ig:"nicolamartins"},
+ {n:"Obadias Benones", p:"PL", f:"obadias-benones-da-silva-10117", tel:"(48) 3431-2213", cel:"", em:"obadiasbenones@camaracriciuma.sc.gov.br", ig:"obadiasbenones"},
+];
+const I = {
+ tel:'<svg viewBox="0 0 24 24" fill="#111"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>',
+ wa:'<svg viewBox="0 0 24 24" fill="#009334"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>',
+ em:'<svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+};
+const txt = () => document.getElementById('texto').textContent;
+const num = t => t.replace(/\D/g,'');
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function copiar(){
+  const ok=()=>{const e=document.getElementById('toast');e.style.display='block';setTimeout(()=>e.style.display='none',1500)};
+  try{navigator.clipboard.writeText(txt()).then(ok)}catch(e){}
+}
+function row(v){
+  const corpo = encodeURIComponent(txt().replace('vereador(a)', v.n));
+  const tel = v.tel || CAMARA;
+  return `<div class="vr ${v.ass?'s':''}">
+    <img src="fotos/${v.f}.jpg" alt="${esc(v.n)}">
+    <div class="nm"><b>${esc(v.n)}</b> <small>${esc(v.p)}</small>${v.c?`<span class="tag">${esc(v.c)}</span>`:''}
+      ${v.ig?`<a class="ig" href="https://instagram.com/${v.ig}" target="_blank" rel="noopener">@${esc(v.ig)}</a>`:`<span class="ig" style="color:#bbb">sem Instagram na Câmara</span>`}</div>
+    <div class="ic">
+      ${v.cel?`<a href="https://wa.me/55${num(v.cel)}?text=${corpo}" target="_blank" rel="noopener" title="WhatsApp ${esc(v.cel)}">${I.wa}</a>`:''}
+      <a href="tel:+55${num(tel)}" title="${esc(tel)}${v.tel?'':' (central da Câmara)'}">${I.tel}</a>
+      <a href="mailto:${v.em}?subject=${encodeURIComponent('Projeto do aumento do salário dos vereadores')}&body=${corpo}" title="${esc(v.em)}">${I.em}</a>
+    </div></div>`;
+}
+document.getElementById('lista').innerHTML =
+  '<div class="grupo v">Assinaram o projeto</div>' + V.filter(v=>v.ass).map(row).join('') +
+  '<div class="grupo">Não assinaram</div>' + V.filter(v=>!v.ass).map(row).join('');
+document.getElementById('cad').innerHTML = V.map(v=>`<i class="${v.ass?'s':''}"></i>`).join('');
+</script>
+</body>
+</html>
