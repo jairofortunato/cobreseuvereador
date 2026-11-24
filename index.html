@@ -47,6 +47,9 @@ footer{max-width:640px;margin:16px auto 0;padding:14px 16px 28px;border-top:1px 
 footer p{margin-bottom:6px}
 footer a{text-decoration:underline}
 .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--preto);color:#fff;font-weight:700;font-size:13px;padding:9px 14px;border-radius:6px;display:none}
+.gmail{display:block;max-width:608px;margin:0 16px 12px;text-align:center;font:900 14px Montserrat,sans-serif;background:var(--vermelho);color:#fff;padding:12px;border-radius:8px}
+@media(min-width:640px){.gmail{margin:0 auto 12px}}
+.gmail small{display:block;font-weight:500;font-size:11px;opacity:.9;margin-top:2px}
 </style>
 </head>
 <body>
@@ -62,6 +65,7 @@ footer a{text-decoration:underline}
   <div class="cad" id="cad"></div><b>6 de 17 assinaram</b>
   <button class="copiar" onclick="copiar()">Copiar mensagem</button>
 </div>
+<a class="gmail" id="gmail" target="_blank" rel="noopener">✉️ Mandar e-mail para todos pelo Gmail<small>Para o presidente da Câmara, com os outros 16 em cópia. A mensagem já vai escrita.</small></a>
 <main id="lista"></main>
 <footer>
   <p><b>Mensagem sugerida:</b> <span id="texto">Olá, vereador(a). Sou eleitor(a) de Criciúma e peço que vote CONTRA o projeto que libera aumento do salário dos vereadores no meio do mandato. Como vai votar?</span></p>
@@ -122,6 +126,14 @@ function row(v){
 document.getElementById('lista').innerHTML =
   '<div class="grupo v">Assinaram o projeto</div>' + V.filter(v=>v.ass).map(row).join('') +
   '<div class="grupo">Não assinaram</div>' + V.filter(v=>!v.ass).map(row).join('');
+// e-mail coletivo: presidente da Câmara (Neto Uggioni) no "para", os outros em cópia
+const PRES = "Neto Uggioni";
+(() => {
+  const p = V.find(v=>v.n===PRES);
+  const cc = V.filter(v=>v!==p).map(v=>v.em).join(',');
+  const q = {view:'cm', fs:'1', to:p.em, cc, su:'Projeto do aumento do salário dos vereadores', body:txt().replace('Olá, vereador(a).', 'Olá, senhores vereadores e senhoras vereadoras.')};
+  document.getElementById('gmail').href = 'https://mail.google.com/mail/?' + Object.entries(q).map(([k,v])=>k+'='+encodeURIComponent(v)).join('&');
+})();
 document.getElementById('cad').innerHTML = V.map(v=>`<i class="${v.ass?'s':''}"></i>`).join('');
 </script>
 </body>
